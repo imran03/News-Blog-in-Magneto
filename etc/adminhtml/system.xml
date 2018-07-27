@@ -1,0 +1,26 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../../Config/etc/system_file.xsd">
+        <system>
+            <!-- for add new tab in Magento2 system configuration section -->
+            <tab id="newsblog" translate="label" sortOrder="10">
+                 <label>News Blog</label>
+            </tab>
+            <!-- for create section -->
+            <section id="sleekaccordian" translate="label" type="text" sortOrder="320" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>Blog Configration</label>
+                <!-- Assign section to tab -->
+                <tab>newsblog</tab>
+    <!--            <resource>newsblock::configuration</resource>-->
+                <!-- create group for fields in section -->
+                <group id="parameters" translate="label" type="text" delault="1" sortOrder="5" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>HomePage</label>
+                    <!-- create text type field -->
+                    <field id="no of post" translate="label comment" sortOrder="7" type="text" showInDefault="1" showInWebsite="1" showInStore="1">
+                        <label>NO of post to display in HomePage</label>
+                        <comment>e.g 10 .</comment>
+                        <validate>validate-number required-entry</validate>
+                    </field>
+                </group>
+            </section>
+        </system>
+</config>

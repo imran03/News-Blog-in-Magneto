@@ -1,0 +1,27 @@
+<?php  $post = $block->getCurrentPost(); ?>
+<a href="<?php echo $block->getUrl('grid') ?>">Back</a>
+<?php  if($post->getIsActive()):?>
+
+<table>
+
+<tbody>
+
+                <tr>
+                <td>
+                    <h2 align="center"><strong><?php echo $post->getTitle(); ?></strong></h2></td>
+                <td>
+                    </br>
+                    </br>
+                <?php echo $block->getCmsFilterContent($post->getContent()); ?>
+                   <p align="right"><strong>  Publish Date: <?php echo $post->getPublishDate();?></strong></p>
+                </td>
+                </tr>
+</tbody>
+</table>
+
+<?php else: ?>
+
+    <div class="message info empty"><span><?php echo __('Post not available.'); ?></span></div>
+<?php endif ?>
+
+

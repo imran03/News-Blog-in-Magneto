@@ -1,0 +1,55 @@
+<?php  $_gridrecords = $block->getCollection(); ?>
+
+
+<?php if ($_gridrecords && count($_gridrecords)): ?>
+
+    <?php foreach ($_gridrecords as $_gridrecord): ?>
+<?php  if($_gridrecord->getIsActive()):?>
+
+
+    <style>
+
+
+        .leftcolumn {
+
+            width: 100%;
+        }
+
+        .card {
+            float: left;
+            background-color: white;
+            padding: 10%;
+            margin-top: 5%;
+            width: 30%;
+
+        }
+
+        @media screen and (max-width: 800px) {
+            .leftcolumn, .rightcolumn {
+                width: 100%;
+                padding: 0;
+            }
+        }
+
+    </style>
+
+
+
+    <div class="row">
+        <div class="leftcolumn">
+            <div class="card">
+                <h2><strong> <?php echo $_gridrecord->getTitle(); ?></strong></h2>
+
+                <div <?php echo $block->getCmsFilterContent($_gridrecord->getContent()); ?></div>
+            <p><a href="<?php echo $block->getUrl('grid/index/view',array('id'=>$_gridrecord->getId()))?>">Read more</a></p>
+
+        </div>
+
+        <?php  endif; ?>
+        <?php endforeach; ?>
+    </div>
+
+    <?php else: ?>
+
+    <?php endif ?>
+

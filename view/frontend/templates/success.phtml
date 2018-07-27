@@ -1,0 +1,58 @@
+<?php  $_gridrecords = $block->getCollection(); ?>
+
+
+<?php if ($_gridrecords && count($_gridrecords)): ?>
+
+<table>
+            <?php foreach ($_gridrecords as $_gridrecord): ?>
+            <?php  if($_gridrecord->getIsActive()):?>
+
+
+    <style>
+        {
+            box-sizing: border-box;
+        }
+
+        .leftcolumn {
+            float: left;
+            width: 100%;
+        }
+
+        .card {
+            background-color: white;
+            padding: 20px;
+            margin-top: 20px;
+        }
+
+        @media screen and (max-width: 800px) {
+            .leftcolumn, .rightcolumn {
+                width: 200%;
+                padding: 0;
+            }
+        }
+    </style>
+
+
+
+            <div class="row">
+                <div class="leftcolumn">
+                    <div class="card">
+                        <h2><strong> <?php echo $_gridrecord->getTitle(); ?></strong></h2>
+
+                        <div <?php echo $block->getCmsFilterContent($_gridrecord->getContent()); ?></div>
+                        <p><a href="<?php echo $block->getUrl('grid/index/view',array('id'=>$_gridrecord->getId()))?>">Read more</a></p>
+
+                    </div>
+
+                <?php  endif; ?>
+            <?php endforeach; ?>
+            </div>
+    <?php if ($block->getPagerHtml()): ?>
+        <div class="order-products-toolbar toolbar bottom"><?php echo $block->getPagerHtml();?></div>
+    <?php endif ?>
+<?php else: ?>
+
+    <div class="message info empty"><span><?php echo __('Blog posts not available.'); ?></span></div>
+<?php endif ?>
+
+</table>
