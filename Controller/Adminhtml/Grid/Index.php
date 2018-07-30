@@ -22,7 +22,6 @@ class Index extends \Magento\Backend\App\Action
     }
 
     /**
-     * Mapped eBay Order List page.
      *
      * @return \Magento\Backend\Model\View\Result\Page
      */
