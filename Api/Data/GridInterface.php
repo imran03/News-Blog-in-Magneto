@@ -5,9 +5,7 @@ namespace NewsBlog\Grid\Api\Data;
 
 interface GridInterface
 {
-    /**
-     * Constants for keys of data array. Identical to the name of the getter in snake case.
-     */
+    
     const ENTITY_ID = 'entity_id';
     const TITLE = 'title';
     const CONTENT = 'content';
@@ -71,9 +69,6 @@ interface GridInterface
     */
     public function getIsActive();
 
-   /**
-    * Set StartingPrice.
-    */
     public function setIsActive($isActive);
 
    /**
